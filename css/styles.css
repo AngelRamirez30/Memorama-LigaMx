@@ -1,7 +1,159 @@
-body{
-    font-family: 'Roboto', sans-serif;
+html {
+    font: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    
 }
 
-h1{
-    font-weight: 700;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('img/wallpaper-liga-mx.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 50px;
+    gap: 30px;
+    background-color: #fff;
+}
+
+@media (min-width: 820px) {
+    .header{
+        flex-direction: row;
+        gap: 0;
+    }
+}
+
+.header__texto{
+    font-size: 70px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.header__img{
+    width: 200px;
+}
+
+@media (min-width: 820px) {
+    .header__img{
+        width: 150px;
+        margin: 0 30px;
+    }
+}
+
+.header__nav{
+    display: flex;
+}
+
+@media (min-width: 820px) {
+    .header__nav{
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 20px;
+    }
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: #111;
+    font-size: 25px;
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+
+.header__nav a:hover {
+    color: #fff;
+    background-color:#e74c3c ;
+    font-size: 30px;
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+
+
+.memorama {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+    gap: 30px;
+    margin: 50px auto;
+}
+
+@media (min-width: 820px) {
+    .memorama {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .memorama {
+        grid-template-columns: repeat(4, 1fr);
+        
+    }
+}
+
+.footer{
+    background-color: #111;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+.carta {
+    width: 250px;
+    height: 250px;
+    background: #ddd;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.carta.dada_vuelta {
+    background: #fff;
+    transition: all 0.5s;
+}
+
+.carta.par img{
+    opacity: 0.5;
+    pointer-events: none; /* Esto evitará que las cartas emparejadas se puedan hacer clic */
+}
+
+/* Agrega esta regla para ocultar las imágenes */
+.carta img {
+    display: none;
+    width: 90%;
+    height: auto;
+    transition: all 0.2s;
+}
+
+/* Agrega esta regla para mostrar la imagen cuando se dé vuelta la carta */
+.carta.dada_vuelta img {
+    display: block;
 }
