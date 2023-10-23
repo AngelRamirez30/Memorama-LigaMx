@@ -25,6 +25,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     position: relative;
+    
 }
 
 .header{
@@ -43,7 +44,12 @@ body {
         flex-direction: row;
         gap: 0;
     }
+    .logo{
+        margin-right: 5.7%;
+    }
+   
 }
+
 
 .header__texto{
     font-size: 70px;
@@ -53,12 +59,13 @@ body {
 
 .header__img{
     width: 200px;
+
 }
 
 @media (min-width: 820px) {
     .header__img{
         width: 150px;
-        margin: 0 30px;
+        margin: 0 60px;
     }
 }
 
@@ -118,6 +125,22 @@ body {
     width: 100%;
     text-align: center;
 }
+@media (max-width: 576px) {
+    h1{
+        font-size: 2.5rem !important;
+        padding: 1rem;
+    }
+   
+    .carta{
+        height: 150px !important;
+        width: 160px !important;
+        height: 150px; 
+        font-size: 16px; 
+        padding: 10px; 
+  
+    }
+ 
+}
 
 .carta {
     width: 250px;
@@ -138,6 +161,7 @@ body {
 .carta.dada_vuelta {
     background: #fff;
     transition: all 0.5s;
+    pointer-events: none;
 }
 
 .carta.par img{
