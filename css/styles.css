@@ -131,6 +131,7 @@ body {
     border: 1px solid #ccc; /* Borde sólido de 1 píxel de ancho en color negro (#000) */
     border-radius: 5px; /* Borde redondeado */
     color: #111; /* Color de texto blanco */
+    align-items: center;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 700;
@@ -187,8 +188,8 @@ body {
     }
    
     .carta{
-        height: 150px !important;
-        width: 180px !important;
+        height: 160px !important;
+        width: 160px !important;
         font-size: 16px; 
         padding: 10px; 
         margin-left: 20px;
