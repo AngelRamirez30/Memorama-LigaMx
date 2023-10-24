@@ -4,6 +4,14 @@ let VueltaPrimeraCarta = false;
 let tableroBloqueado = false;
 let primeraCarta, segundaCarta;
 
+let segundos = 0;
+let intervalo;
+let intentos = 0;
+
+const jugar = document.querySelector(".jugar");
+const memorama = document.querySelector(".memorama");
+const numIntentos = document.getElementById('numIntentos');
+
 function darVueltaCarta() {
   if (tableroBloqueado) return;
   if (this === primeraCarta) return;
@@ -21,6 +29,8 @@ function darVueltaCarta() {
 }
 
 function verificarPar() {
+  intentos++;
+  numIntentos.textContent = `Intentos: ${intentos}`;
   if (
     primeraCarta.querySelector("img").src ===
     segundaCarta.querySelector("img").src
@@ -54,8 +64,6 @@ function resetearTablero() {
   [primeraCarta, segundaCarta] = [null, null];
 }
 
-document.addEventListener("DOMContentLoaded", desordenarCartas);
-
 function desordenarCartas() {
   // Obtén el contenedor y las tarjetas
   const arrayCartas = Array.from(cartas);
@@ -79,5 +87,42 @@ function desordenarCartas() {
     carta.innerHTML = contenidoOriginal[index];
   });
 }
+
+
+function formatTime(segundos) {
+  const horas = Math.floor(segundos / 3600);
+  const minutos = Math.floor((segundos % 3600) / 60);
+  const segundosRestantes = segundos % 60;
+  return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundosRestantes.toString().padStart(2, '0')}`;
+}
+
+function actualizarTemporizador() {
+  const temporizadorElement = document.getElementById('temporizador');
+  temporizadorElement.textContent = formatTime(segundos);
+  segundos++;
+}
+
+// Función para iniciar el temporizador
+function iniciarTemporizador() {
+  clearInterval(intervalo);
+  segundos = 0;
+  intervalo = setInterval(actualizarTemporizador, 1000);
+}
+
+function comenzarJuego() {
+  cartas.forEach((carta) => {
+    carta.classList.remove("par");
+    carta.classList.remove("dada_vuelta");
+  });
+  desordenarCartas();
+  memorama.classList.remove("bloqueo");
+  iniciarTemporizador();
+  jugar.classList.add('reiniciar');
+  jugar.textContent = 'Reiniciar';
+  intentos = 0;
+  numIntentos.textContent = `Intentos: ${intentos}`;
+}
+
+jugar.addEventListener("click", comenzarJuego);
 
 cartas.forEach((carta) => carta.addEventListener("click", darVueltaCarta));
