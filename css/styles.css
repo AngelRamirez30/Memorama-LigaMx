@@ -2,7 +2,7 @@ html {
     font: 62.5%;
     box-sizing: border-box;
     scroll-snap-type: y mandatory;
-    
+
 }
 
 *,
@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-image: url('img/wallpaper-liga-mx.webp');
@@ -27,7 +27,7 @@ body {
     position: relative;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -39,39 +39,40 @@ body {
 }
 
 @media (min-width: 820px) {
-    .header{
+    .header {
         flex-direction: row;
         gap: 0;
     }
 }
 
-.header__texto{
+.header__texto {
     font-size: 70px;
     margin: 0;
     text-transform: uppercase;
 }
 
-.header__img{
+.header__img {
     width: 200px;
 
 }
-.logo{
+
+.logo {
     margin-right: 5%;
 }
 
 @media (min-width: 820px) {
-    .header__img{
+    .header__img {
         width: 150px;
         margin: 0 30px;
     }
 }
 
-.header__nav{
+.header__nav {
     display: flex;
 }
 
 @media (min-width: 820px) {
-    .header__nav{
+    .header__nav {
         flex-direction: row;
         justify-content: space-between;
         margin: 0 20px;
@@ -88,61 +89,74 @@ body {
 
 .header__nav a:hover {
     color: #fff;
-    background-color:#e74c3c ;
+    background-color: #e74c3c;
     font-size: 30px;
     padding: 10px 20px;
     transition: all 0.3s;
 }
 
-.opciones{
+.opciones {
     display: flex;
     max-width: 95%;
     justify-content: flex-start;
     margin: 20px auto;
 }
 
+@media (min-width:) {}
+
 .jugar {
-    background-color: #2ecc71; /* Color de fondo rojo */
-    border: 1px solid #2ea560; /* Borde sólido de 1 píxel de ancho en color negro (#000) */
-    border-radius: 5px; /* Borde redondeado */
-    color: #fff; /* Color de texto blanco */
+    background-color: #2ecc71;
+    /* Color de fondo rojo */
+    border: 1px solid #2ea560;
+    /* Borde sólido de 1 píxel de ancho en color negro (#000) */
+    border-radius: 5px;
+    /* Borde redondeado */
+    color: #fff;
+    /* Color de texto blanco */
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 700;
-    padding: 2px 20px; /* Espaciado interno (10px arriba/abajo, 20px izquierda/derecha) */
-    cursor: pointer; /* Cambia el cursor a una mano al pasar el mouse */
+    padding: 2px 20px;
+    /* Espaciado interno (10px arriba/abajo, 20px izquierda/derecha) */
+    cursor: pointer;
+    /* Cambia el cursor a una mano al pasar el mouse */
 }
 
 .jugar:hover {
-    background-color:#43e185;
+    background-color: #43e185;
 }
 
-.reiniciar{
+.reiniciar {
     background-color: #e74c3c;
     border: 1px solid #8d2e23;
 }
 
 .reiniciar:hover {
-    background-color:#e96658;
+    background-color: #e96658;
 }
 
-.tiempo{
-    background-color: #fff; /* Color de fondo rojo */
-    border: 1px solid #ccc; /* Borde sólido de 1 píxel de ancho en color negro (#000) */
-    border-radius: 5px; /* Borde redondeado */
-    color: #111; /* Color de texto blanco */
+.tiempo {
+    background-color: #fff;
+    /* Color de fondo rojo */
+    border: 1px solid #ccc;
+    /* Borde sólido de 1 píxel de ancho en color negro (#000) */
+    border-radius: 5px;
+    /* Borde redondeado */
+    color: #111;
+    /* Color de texto blanco */
     align-items: center;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 700;
     margin: 0 30px;
-    padding: 2px 20px; /* Espaciado interno (10px arriba/abajo, 20px izquierda/derecha) */
+    padding: 2px 20px;
+    /* Espaciado interno (10px arriba/abajo, 20px izquierda/derecha) */
 }
 
-.intentos{
-    background-color: #fff; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
+.intentos {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     color: #111;
     font-size: 20px;
     text-transform: uppercase;
@@ -150,18 +164,18 @@ body {
     padding: 2px 20px;
 }
 
-.bloqueo{
+.bloqueo {
     pointer-events: none;
 }
 
-.bloqueo .carta{
+.bloqueo .carta {
     background-color: rgba(255, 255, 255, 0.537);
 }
 
 .memorama {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    
+
     gap: 30px;
 }
 
@@ -174,31 +188,49 @@ body {
 @media (min-width: 1024px) {
     .memorama {
         grid-template-columns: repeat(4, 1fr);
-        
+
     }
 }
 
 @media (max-width: 576px) {
-    h1{
-        font-size: 2.5rem !important;
-        padding: 1rem;
+    .header {
+        padding: 20px 30px;
     }
-    .logo{
-        margin-right: 0 ;
+
+    .header__texto {
+        font-size: 40px;
     }
-   
-    .carta{
+
+    .header__img {
+        width: 150px;
+    }
+
+    .opciones {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .jugar,
+    .reiniciar,
+    .tiempo,
+    .intentos {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .carta {
         height: 160px !important;
         width: 160px !important;
-        font-size: 16px; 
-        padding: 10px; 
-        margin-left: 20px;
-  
+        font-size: 18px;
+        margin-left: 0;
     }
- 
+
+    .memorama {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.footer{
+.footer {
     background-color: #111;
     color: #fff;
     width: 100%;
@@ -207,6 +239,7 @@ body {
 }
 
 .carta {
+
     width: 250px;
     height: 250px;
     background: #ddd;
@@ -220,20 +253,26 @@ body {
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    /* Nueva propiedad box-shadow */
 }
 
 .carta.dada_vuelta {
     background: #fff;
     transition: all 0.5s;
+    pointer-events: none;
 }
 
-.carta.par img{
+.carta.par img {
     opacity: 0.5;
-    pointer-events: none; /* Esto evitará que las cartas emparejadas se puedan hacer clic */
+    pointer-events: none;
+    /* Esto evitará que las cartas emparejadas se puedan hacer clic */
 }
 
 /* Agrega esta regla para ocultar las imágenes */
 .carta img {
+
     display: none;
     width: 90%;
     height: auto;
@@ -243,4 +282,21 @@ body {
 /* Agrega esta regla para mostrar la imagen cuando se dé vuelta la carta */
 .carta.dada_vuelta img {
     display: block;
+}
+
+.mensaje-victoria {
+    display: none;
+    opacity: 0.8;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    color: #333333;
+    z-index: 1000;
 }

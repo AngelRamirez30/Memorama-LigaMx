@@ -46,6 +46,7 @@ function deshabilitarCartas() {
   segundaCarta.classList.add("par");
 
   resetearTablero();
+  verificarVictoria();
 }
 
 function voltearCartas() {
@@ -110,6 +111,8 @@ function iniciarTemporizador() {
 }
 
 function comenzarJuego() {
+  const mensajeVictoria = document.getElementById('mensajeVictoria');
+  mensajeVictoria.style.display = 'none';
   cartas.forEach((carta) => {
     carta.classList.remove("par");
     carta.classList.remove("dada_vuelta");
@@ -122,6 +125,20 @@ function comenzarJuego() {
   intentos = 0;
   numIntentos.textContent = `Intentos: ${intentos}`;
 }
+function verificarVictoria() {
+  const cartasEmparejadas = document.querySelectorAll(".carta.par");
+  if (cartasEmparejadas.length === cartas.length) {
+    clearInterval(intervalo); // Detener el temporizador
+    const mensajeVictoria = document.getElementById('mensajeVictoria');
+    mensajeVictoria.style.display = 'block';
+  }
+}
+
+jugar.addEventListener("click", function() {
+  // Oculta el mensaje
+  const mensajeVictoria = document.getElementById('mensajeVictoria');
+  mensajeVictoria.style.display = 'none';
+});
 
 jugar.addEventListener("click", comenzarJuego);
 
