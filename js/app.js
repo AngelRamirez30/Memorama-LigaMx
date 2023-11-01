@@ -7,10 +7,12 @@ let primeraCarta, segundaCarta;
 let segundos = 0;
 let intervalo;
 let intentos = 0;
+let juegoIniciado = false;
 
 const jugar = document.querySelector(".jugar");
 const memorama = document.querySelector(".memorama");
-const numIntentos = document.getElementById('numIntentos');
+const temporizadorElement = document.getElementById("temporizador");
+const numIntentos = document.getElementById("numIntentos");
 
 function darVueltaCarta() {
   if (tableroBloqueado) return;
@@ -89,55 +91,80 @@ function desordenarCartas() {
   });
 }
 
-
 function formatTime(segundos) {
   const horas = Math.floor(segundos / 3600);
   const minutos = Math.floor((segundos % 3600) / 60);
   const segundosRestantes = segundos % 60;
-  return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundosRestantes.toString().padStart(2, '0')}`;
+  return `${horas.toString().padStart(2, "0")}:${minutos
+    .toString()
+    .padStart(2, "0")}:${segundosRestantes.toString().padStart(2, "0")}`;
 }
 
 function actualizarTemporizador() {
-  const temporizadorElement = document.getElementById('temporizador');
   temporizadorElement.textContent = formatTime(segundos);
   segundos++;
 }
 
 // Función para iniciar el temporizador
 function iniciarTemporizador() {
-  clearInterval(intervalo);
   segundos = 0;
   intervalo = setInterval(actualizarTemporizador, 1000);
 }
 
 function comenzarJuego() {
-  const mensajeVictoria = document.getElementById('mensajeVictoria');
-  mensajeVictoria.style.display = 'none';
+  const mensajeVictoria = document.getElementById("mensajeVictoria");
+  mensajeVictoria.style.display = "none";
   cartas.forEach((carta) => {
     carta.classList.remove("par");
     carta.classList.remove("dada_vuelta");
   });
-  desordenarCartas();
-  memorama.classList.remove("bloqueo");
-  iniciarTemporizador();
-  jugar.classList.add('reiniciar');
-  jugar.textContent = 'Reiniciar';
-  intentos = 0;
-  numIntentos.textContent = `Intentos: ${intentos}`;
+  const nombre = document.getElementById("nombre");
+  if (nombre.value.trim() != "") {
+    if (juegoIniciado == false) {
+      nombre.disabled = true;
+      juegoIniciado = true;
+      desordenarCartas();
+      memorama.classList.remove("bloqueo");
+      iniciarTemporizador();
+      jugar.classList.add("reiniciar");
+      jugar.textContent = "Reiniciar";
+      intentos = 0;
+      numIntentos.textContent = `Intentos: ${intentos}`;
+    } else {
+      console.log('entre');
+      nombre.disabled = false;
+      juegoIniciado = false;
+      clearInterval(intervalo);
+      segundos = 0;
+      temporizadorElement.textContent = "00:00:00";
+      desordenarCartas();
+      memorama.classList.add("bloqueo");
+      //iniciarTemporizador();
+      jugar.classList.remove("reiniciar");
+      jugar.textContent = "Jugar";
+      intentos = 0;
+      numIntentos.textContent = `Intentos: ${intentos}`;
+    }
+  }
 }
 function verificarVictoria() {
   const cartasEmparejadas = document.querySelectorAll(".carta.par");
   if (cartasEmparejadas.length === cartas.length) {
     clearInterval(intervalo); // Detener el temporizador
-    const mensajeVictoria = document.getElementById('mensajeVictoria');
-    mensajeVictoria.style.display = 'block';
+    const mensajeVictoria = document.getElementById("mensajeVictoria");
+    mensajeVictoria.style.display = "block";
   }
 }
 
-jugar.addEventListener("click", function() {
+function añadirRank() {
+  const nombre = document.getElementsByClassName("nombre").value;
+  console.log(nombre);
+}
+
+jugar.addEventListener("click", function () {
   // Oculta el mensaje
-  const mensajeVictoria = document.getElementById('mensajeVictoria');
-  mensajeVictoria.style.display = 'none';
+  const mensajeVictoria = document.getElementById("mensajeVictoria");
+  mensajeVictoria.style.display = "none";
 });
 
 jugar.addEventListener("click", comenzarJuego);
