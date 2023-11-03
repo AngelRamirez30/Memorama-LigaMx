@@ -9,11 +9,37 @@ let intervalo;
 let intentos = 0;
 let juegoIniciado = false;
 
+let url = "https://memoramaligamx-default-rtdb.firebaseio.com/";
+
 const jugar = document.querySelector(".jugar");
 const memorama = document.querySelector(".memorama");
 const temporizadorElement = document.getElementById("temporizador");
 const numIntentos = document.getElementById("numIntentos");
 
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    const response = await fetch(`${url}/jugadores.json`);
+    const jugadores = await response.json();
+    renderTable(jugadores);
+  } catch (error) {
+    console.error("Ha ocurrido un error: ", error);
+  }
+});
+
+function renderTable(data) {
+  let tbody = document.getElementById('alumnosTable');
+  let rowHTML = '';
+
+  Object.keys(data).forEach(key => {
+    rowHTML += `<tr>
+      <td>${data[key].nombre}</td>
+      <td>${data[key].tiempo}</td>
+      <td>${data[key].intentos}</td>
+
+    </tr>`;
+  });
+  tbody.innerHTML = rowHTML;
+}
 function darVueltaCarta() {
   if (tableroBloqueado) return;
   if (this === primeraCarta) return;
@@ -170,3 +196,5 @@ jugar.addEventListener("click", function () {
 jugar.addEventListener("click", comenzarJuego);
 
 cartas.forEach((carta) => carta.addEventListener("click", darVueltaCarta));
+document.addEventListener('DOMContentLoaded', consultarAsync);
+
