@@ -186,15 +186,8 @@ function añadirRank() {
   const nombre = document.getElementsByClassName("nombre").value;
   console.log(nombre);
 }
-
-jugar.addEventListener("click", function () {
-  // Oculta el mensaje
-  const mensajeVictoria = document.getElementById("mensajeVictoria");
-  mensajeVictoria.style.display = "none";
-});
-
 jugar.addEventListener("click", comenzarJuego);
 
 cartas.forEach((carta) => carta.addEventListener("click", darVueltaCarta));
-document.addEventListener('DOMContentLoaded', consultarAsync);
+
 
