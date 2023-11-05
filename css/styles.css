@@ -328,21 +328,23 @@ body {
     z-index: 1000;
 }
 
+/*Tabla de Rankings*/
+
+h2 {
+    text-align: center;
+    color: #f9f9f9;
+}
 .estilosRank {
     width: 100%;
-    margin: 20px 0;
-   
-  
+    margin: 20px 0;  
 }
+
 .estilosRank th,
 .estilosRank td {
     border: 1px solid #555;
     padding: 10px;
     text-align: center;
 
-}
-table{
-    border-collapse: collapse;
 }
 
 .estilosRank th{
@@ -355,7 +357,6 @@ table{
 
 .columnas {
     display: grid;
-    margin: 50px;
     grid-template-columns: repeat(3, 1fr);
     gap: 15rem;
 }
@@ -363,7 +364,12 @@ table{
     background: rgba(0, 0, 0, 0.4);
 }
 
-h2 {
-    text-align: center;
-    color: #f9f9f9;
+@media (max-width: 768px) {
+    .columnas{
+        margin: 0px;
+        gap: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
 }
+

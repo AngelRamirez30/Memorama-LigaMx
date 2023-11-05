@@ -16,30 +16,55 @@ const memorama = document.querySelector(".memorama");
 const temporizadorElement = document.getElementById("temporizador");
 const numIntentos = document.getElementById("numIntentos");
 
-document.addEventListener('DOMContentLoaded', async function () {
+// document.addEventListener('DOMContentLoaded', async function () {
+//   try {
+//     const response = await fetch(`${url}/jugadores.json`);
+//     const jugadores = await response.json();
+//     renderTable(jugadores);
+//   } catch (error) {
+//     console.error("Ha ocurrido un error: ", error);
+//   }
+// });
+async function consultarAsync() {
   try {
-    const response = await fetch(`${url}/jugadores.json`);
-    const jugadores = await response.json();
-    renderTable(jugadores);
+    const response4x3 = await fetch(`${url}/jugadores/4x3.json`);
+    const response4x4 = await fetch(`${url}/jugadores/4x4.json`);
+    const response4x5 = await fetch(`${url}/jugadores/4x5.json`);
+
+    const jugadores4x3 = await response4x3.json();
+    const jugadores4x4 = await response4x4.json();
+    const jugadores4x5 = await response4x5.json();
+
+    renderTable(jugadores4x3, 'alumnosTable');
+    renderTable(jugadores4x4, 'alumnosTable2');
+    renderTable(jugadores4x5, 'alumnosTable3');
   } catch (error) {
     console.error("Ha ocurrido un error: ", error);
   }
-});
+}
+window.onload = function () {
+  consultarAsync();
+}
 
-function renderTable(data) {
-  let tbody = document.getElementById('alumnosTable');
+function renderTable(data, tablaId) {
+  let tbody = document.getElementById(tablaId);
   let rowHTML = '';
+  let rank = 1;
 
   Object.keys(data).forEach(key => {
     rowHTML += `<tr>
+      <td>${rank}</td>
       <td>${data[key].nombre}</td>
       <td>${data[key].tiempo}</td>
       <td>${data[key].intentos}</td>
-
+      
     </tr>`;
+    rank++;
   });
+
   tbody.innerHTML = rowHTML;
 }
+
 function darVueltaCarta() {
   if (tableroBloqueado) return;
   if (this === primeraCarta) return;
