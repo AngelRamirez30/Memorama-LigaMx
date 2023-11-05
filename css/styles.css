@@ -102,7 +102,7 @@ body {
     margin: 20px auto;
 }
 
-#nombre{
+#nombre {
     background-color: #e7e7e7;
     border: 1px solid #d8d8d8;
     border-radius: 5px;
@@ -156,7 +156,7 @@ body {
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 700;
-    
+
     padding: 2px 20px;
     /* Espaciado interno (10px arriba/abajo, 20px izquierda/derecha) */
 }
@@ -197,6 +197,7 @@ body {
     .memorama {
         grid-template-columns: repeat(4, 1fr);
     }
+
     .opciones {
         flex-direction: row;
     }
@@ -207,6 +208,7 @@ body {
         flex-direction: column;
         align-items: center;
     }
+
     #nombre,
     .jugar,
     .reiniciar,
@@ -324,4 +326,44 @@ body {
     color: #111;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     z-index: 1000;
+}
+
+.estilosRank {
+    width: 100%;
+    margin: 20px 0;
+   
+  
+}
+.estilosRank th,
+.estilosRank td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: center;
+
+}
+table{
+    border-collapse: collapse;
+}
+
+.estilosRank th{
+    color: black;
+    background-color: #D1F2EB;
+}
+.estilosRank td{
+    color: white;
+}
+
+.columnas {
+    display: grid;
+    margin: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15rem;
+}
+.estilosRank tr:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    text-align: center;
+    color: #f9f9f9;
 }
