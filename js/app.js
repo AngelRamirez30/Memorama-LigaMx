@@ -257,7 +257,7 @@ function verificarVictoria() {
 async function añadirRank() {
   const nombre = document.getElementById("nombre").value;
   const lvl =
-    fileName === "index.html" ? "4x3" : fileName === "4x4.html" ? "4x4" : "4x5";
+    fileName === "4x5.html" ? "4x5" : fileName === "4x4.html" ? "4x4" : "4x3";
   const jugador = {
     nombre,
     tiempo: (elapsedTime / 1000).toFixed(2),
