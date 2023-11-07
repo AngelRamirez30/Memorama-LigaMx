@@ -2,8 +2,8 @@ html {
     font: 62.5%;
     box-sizing: border-box;
     scroll-snap-type: y mandatory;
-
 }
+
 
 *,
 *:before,
@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-image: url('img/wallpaper-liga-mx.webp');

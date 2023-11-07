@@ -1,89 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="css/img/liga-mx-logo.png" type="image/x-icon" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
-  <link rel="icon" href="css/img/liga-mx-logo.png" type="image/x-icon" />
+    <title>Memorama</title>
+  </head>
 
-  <title>Memorama</title>
-</head>
+  <body>
+    <header class="header">
+      <h1 class="header__texto">Memorama</h1>
+      <div class="logo">
+        <img class="header__img" src="css/img/liga-mx-logo.png" alt="" />
+      </div>
+      <nav class="header__nav">
+        <a href="index.html">4x3</a>
+        <a href="4x4.html">4x4</a>
+        <a href="4x5.html">4x5</a>
+      </nav>
+    </header>
 
-<body>
-  <header class="header">
-    <h1 class="header__texto">Memorama</h1>
-    <div class="logo">
-      <img class="header__img" src="css/img/liga-mx-logo.png" alt="" />
+    <div class="columnas">
+      <div class="estilosRank">
+        <h2>Ranking 4x3</h2>
+        <table class="tablaRank">
+          <tr>
+            <th>Rank</th>
+            <th>Nombre</th>
+            <th>Tiempo</th>
+            <th>Intentos</th>
+          </tr>
+
+          <tbody id="alumnosTable">
+            <!--Response Json-->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="estilosRank">
+        <h2>Ranking 4x4</h2>
+        <table class="tablaRank">
+          <tr>
+            <th>Rank</th>
+            <th>Nombre</th>
+            <th>Tiempo</th>
+            <th>Intentos</th>
+          </tr>
+          <tbody id="alumnosTable2">
+            <!--Response Json-->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="estilosRank">
+        <h2>Ranking 4x5</h2>
+        <table class="tablaRank">
+          <tr>
+            <th>Rank</th>
+            <th>Nombre</th>
+            <th>Tiempo</th>
+            <th>Intentos</th>
+          </tr>
+          <tbody id="alumnosTable3">
+            <!--Response Json-->
+          </tbody>
+        </table>
+      </div>
     </div>
-    <nav class="header__nav">
-      <a href="index.html">4x3</a>
-      <a href="4x4.html">4x4</a>
-      <a href="4x5.html">4x5</a>
-    </nav>
-  </header>
+    <footer class="footer">
+      <h2>Practica realizada por: Angel Ramirez & Luis Peraza</h2>
+    </footer>
 
-  <div class="columnas">
-    <div class="estilosRank">
-      <h2>Ranking 4x3</h2>
-      <table class="tablaRank">
-        <tr>
-          <th>Rank</th>
-          <th>Nombre</th>
-          <th>Tiempo</th>
-          <th>Intentos</th>
-        </tr>
-
-        <tbody id="alumnosTable"> <!--Response Json-->
-        </tbody>
-
-      </table>
-    </div>
-
-    <div class="estilosRank">
-      <h2>Ranking 4x4</h2>
-      <table class="tablaRank">
-        <tr>
-          <th>Rank</th>
-          <th>Nombre</th>
-          <th>Tiempo</th>
-          <th>Intentos</th>
-        </tr>
-        <tbody id="alumnosTable2"> <!--Response Json-->
-        </tbody>
-
-      </table>
-    </div>
-
-    <div class="estilosRank">
-      <h2>Ranking 4x5</h2>
-      <table class="tablaRank">
-        <tr>
-          <th>Rank</th>
-          <th>Nombre</th>
-          <th>Tiempo</th>
-          <th>Intentos</th>
-        </tr>
-        <tbody id="alumnosTable3"> <!--Response Json-->
-        </tbody>
-      </table>
-
-    </div>
-
-  </div>
-
-
-
-
-
-  <footer class="footer">
-    <h2>Practica realizada por: Angel Ramirez & Luis Peraza</h2>
-  </footer>
-  <script src="js/app.js"></script>
-</body>
-
+    <script src="js/app.js"></script>
+  </body>
 </html>
